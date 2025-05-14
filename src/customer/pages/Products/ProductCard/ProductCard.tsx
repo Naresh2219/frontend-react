@@ -148,9 +148,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ item }) => {
                         <span className="text thin-line-through text-gray-400 ">
                             ₹{item.mrpPrice}
                         </span>
-                        {/* <span className="text-[#00927c] font-semibold">
-                            //{item.discountPercent}% off
-                        </span> */}
+                        <span className="text-[#00927c] font-semibold">
+                            {item.mrpPrice > 0 && (
+                                <span className="text-[#00927c] font-semibold">
+                                    {Math.round(((item.mrpPrice - item.sellingPrice) / item.mrpPrice) * 100)}% off
+                                </span>
+                            )}
+                        </span>
                     </div>
                 </div>
 
