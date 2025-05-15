@@ -28,11 +28,11 @@ import Mobile from './data/Products/mobile';
 function App() {
   const dispatch = useAppDispatch()
   const { auth, sellerAuth, sellers, user } = useAppSelector(store => store)
-const navigate=useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("jwt")) {
-      dispatch(fetchUserProfile({jwt:localStorage.getItem("jwt") || auth.jwt || "",navigate}));
+      dispatch(fetchUserProfile({ jwt: localStorage.getItem("jwt") || auth.jwt || "", navigate }));
       dispatch(fetchSellerProfile(localStorage.getItem("jwt") || sellerAuth.jwt))
     }
 
@@ -49,17 +49,18 @@ const navigate=useNavigate();
 
 
         <Routes>
-          {sellers.profile && <Route path='/seller/*' element={<SellerDashboard />} />}
-          {user.user?.role === "ROLE_ADMIN" && <Route path='/admin/*' element={<AdminDashboard />} />}
-          <Route path='/verify-seller/:otp' element={<SellerAccountVerification />} />
-          <Route path='/seller-account-verified' element={<SellerAccountVerified />} />
-          <Route path='/become-seller' element={<BecomeSeller />} />
-          <Route path='/admin-login' element={<AdminAuth />} />
+          <div style={{flex:1}}>
+            {sellers.profile && <Route path='/seller/*' element={<SellerDashboard />} />}
+            {user.user?.role === "ROLE_ADMIN" && <Route path='/admin/*' element={<AdminDashboard />} />}
+            <Route path='/verify-seller/:otp' element={<SellerAccountVerification />} />
+            <Route path='/seller-account-verified' element={<SellerAccountVerified />} />
+            <Route path='/become-seller' element={<BecomeSeller />} />
+            <Route path='/admin-login' element={<AdminAuth />} />
 
-          <Route path='/dummy' element={<Mobile />} />
+            <Route path='/dummy' element={<Mobile />} />
 
-          <Route path='*' element={<CustomerRoutes />} />
-
+            <Route path='*' element={<CustomerRoutes />} />
+          </div>
         </Routes>
         {/* <Footer/> */}
       </div>
