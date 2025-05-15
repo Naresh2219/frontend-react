@@ -47,7 +47,6 @@ function App() {
     <ThemeProvider theme={customeTheme}>
       <div className='App' >
 
-<div style={{flex:1}}>
         <Routes>
           
             {sellers.profile && <Route path='/seller/*' element={<SellerDashboard />} />}
@@ -62,7 +61,7 @@ function App() {
             <Route path='*' element={<CustomerRoutes />} />
           
         </Routes>
-        </div>
+
         {/* <Footer/> */}
       </div>
 
