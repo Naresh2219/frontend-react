@@ -47,9 +47,9 @@ function App() {
     <ThemeProvider theme={customeTheme}>
       <div className='App' >
 
-
+<div style={{flex:1}}>
         <Routes>
-          <div style={{flex:1}}>
+          
             {sellers.profile && <Route path='/seller/*' element={<SellerDashboard />} />}
             {user.user?.role === "ROLE_ADMIN" && <Route path='/admin/*' element={<AdminDashboard />} />}
             <Route path='/verify-seller/:otp' element={<SellerAccountVerification />} />
@@ -60,8 +60,9 @@ function App() {
             <Route path='/dummy' element={<Mobile />} />
 
             <Route path='*' element={<CustomerRoutes />} />
-          </div>
+          
         </Routes>
+        </div>
         {/* <Footer/> */}
       </div>
 
