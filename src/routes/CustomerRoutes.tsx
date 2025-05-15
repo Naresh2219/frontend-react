@@ -32,9 +32,8 @@ const CustomerRoutes = () => {
     }, [auth.jwt])
   return (
 
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <>
       <Navbar />
-       <div style={{ flex: 1 }}>
       <Routes>
         <Route path='/' element={<Home />} />
         {/* <Route path='/chat-bot' element={<ChatBot />} /> */}
@@ -51,9 +50,9 @@ const CustomerRoutes = () => {
         <Route path='/payment-success/:orderId' element={<PaymentSuccessHandler/>} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      </div>
+
       <Footer />
-      </div>
+      </>
 
 
   )
