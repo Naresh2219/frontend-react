@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Banner from './Banner/Banner'
 import HomeCategory from './HomeCategory/HomeCategory'
 import TopBrand from './TopBrands/Grid'
-import ElectronicCategory from './Electronic Category/ElectronicCategory'
+import ElectronicCategory from './ElectronicCategory/ElectronicCategory'
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import { Backdrop, Button, CircularProgress } from '@mui/material'
 import ChatBot from '../ChatBot/ChatBot'

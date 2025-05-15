@@ -69,7 +69,7 @@ const ElectronicCategory = () => {
   return (
     <div className="flex flex-wrap justify-between py-5 lg:px-20 border-b">
       {homePage.homePageData?.electricCategories
-        .slice(0, isSmallScreen ? 5 : electronics.length)
+        //.slice(0, isSmallScreen ? 5 : electronics.length)
         .map((item) => (
           <ElectronicCategoryCard item={item} />
         ))}
