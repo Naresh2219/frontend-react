@@ -69,7 +69,7 @@ const Navbar = () => {
               onClick={() => navigate("/")}
               className="logo cursor-pointer text-lg md:text-2xl  text-[#63c6e7]"
             >
-              Naresh Bazaar
+              HappyShoping
             </h1>
           </div>
 
