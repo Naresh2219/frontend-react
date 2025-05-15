@@ -31,7 +31,7 @@ const CustomerRoutes = () => {
         dispatch(getWishlistByUserId())
     }, [auth.jwt])
   return (
-    <>
+
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
        <div style={{ flex: 1 }}>
@@ -54,7 +54,7 @@ const CustomerRoutes = () => {
       </div>
       <Footer />
       </div>
-    </>
+
 
   )
 }

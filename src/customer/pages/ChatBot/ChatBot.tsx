@@ -45,10 +45,10 @@ const ChatBot = ({handleClose,productId}:ChatBotProps) => {
                         <h1 className="logo">Shopping</h1>
                         <p>Assitant</p>
                     </div>
-                   {/* {productId && <div className="flex items-center gap-3">
+                   {productId && <div className="flex items-center gap-3">
                         <p>Product id :</p>
                         <p>{productId}</p>
-                    </div>} */}
+                    </div>}
                     <div>
                         <IconButton 
                         onClick={handleClose}
