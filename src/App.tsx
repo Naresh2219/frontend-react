@@ -45,7 +45,6 @@ const navigate=useNavigate();
 
   return (
     <ThemeProvider theme={customeTheme}>
-     <div className="flex flex-col min-h-screen">
       <div className='App' >
 
 
@@ -64,8 +63,6 @@ const navigate=useNavigate();
         </Routes>
         {/* <Footer/> */}
       </div>
-
-</div>
 
     </ThemeProvider>
   );
