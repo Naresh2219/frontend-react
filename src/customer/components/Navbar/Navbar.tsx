@@ -54,13 +54,16 @@ const Navbar = () => {
 
   return (
     <Box
-      sx={{ zIndex: 2 }}
-      className="sticky top-0 left-0 right-0 bg-white blur-bg bg-opacity-80 "
+    className="sticky top-0 left-0 right-0 bg-white blur-bg bg-opacity-80 "
+      sx={{height: { xs: "56px", lg: "70px" }, // Better mobile height
+    backdropFilter: "blur(8px)", // Replace custom blur class
+    zIndex: 1200 }}
+      
     >
       <div className="flex items-center justify-between px-5 lg:px-20 h-[70px] border-b">
         <div className="flex items-center gap-9">
           <div className="flex items-center gap-2">
-            {isLarge && (
+            {!isLarge && (
               <IconButton onClick={() => toggleDrawer(true)()}>
                 <MenuIcon className="text-gray-700" sx={{ fontSize: 29 }} />
               </IconButton>
