@@ -60,7 +60,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-5 lg:px-20 h-[70px] border-b">
         <div className="flex items-center gap-9">
           <div className="flex items-center gap-2">
-            {!isLarge && (
+            {isLarge && (
               <IconButton onClick={() => toggleDrawer(true)()}>
                 <MenuIcon className="text-gray-700" sx={{ fontSize: 29 }} />
               </IconButton>
