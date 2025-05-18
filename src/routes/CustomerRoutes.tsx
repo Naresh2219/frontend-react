@@ -32,7 +32,7 @@ const CustomerRoutes = () => {
     }, [auth.jwt])
   return (
 
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -52,7 +52,7 @@ const CustomerRoutes = () => {
       </Routes>
 
       <Footer />
-      </>
+      </div>
 
 
   )

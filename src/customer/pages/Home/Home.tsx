@@ -29,66 +29,66 @@ const Home = () => {
     }
     return (
         <>
-        {(!homePage.loading)?<div className='space-y-5 lg:space-y-10 relative'>
-            {homePage.homePageData?.electricCategories && <ElectronicCategory />}
-            {/* <Banner /> */}
+            {(homePage.loading) ? <div className='space-y-5 lg:space-y-10 relative'>
+                {homePage.homePageData?.electricCategories && <ElectronicCategory />}
+                {/* <Banner /> */}
 
 
-          {homePage.homePageData?.grid &&  <section >
-                {/* <h1 className='text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-20 text-center'>SHOP FOR WEDDING</h1> */}
-                <TopBrand />
-            </section>}
-        {homePage.homePageData?.deals &&    <section className='pt-10'>
-            <h1 className='text-center text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-10'>Today's Deals</h1>
-                <DealSlider/>
-            </section>}
-           {homePage.homePageData?.shopByCategories && <section className='flex flex-col justify-center items-center py-20 px-5 lg:px-20'>
-                <h1 className='text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-20'>SHOP BY CATEGORY</h1>
-                <HomeCategory />
-            </section>}
-            <section className='lg:px-20 relative h-[200px] lg:h-[450px] object-cover'>
-                <img className='w-full h-full' src={"/seller_banner_image.jpg"} alt="" />
-                <div className='absolute top-1/2 left-4 lg:left-[15rem] transform  -translate-y-1/2 font-semibold lg:text-4xl space-y-3 '>
-                    <h1 className=''>
-                        Sell Your Product
-                    </h1>
-                    <p className='text-lg md:text-2xl'>With <strong className='logo text-3xl md:text-5xl pl-2'>Naresh bazzar</strong></p>
+                {homePage.homePageData?.grid && <section >
+                    {/* <h1 className='text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-20 text-center'>SHOP FOR WEDDING</h1> */}
+                    <TopBrand />
+                </section>}
+                {homePage.homePageData?.deals && <section className='pt-10'>
+                    <h1 className='text-center text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-10'>Today's Deals</h1>
+                    <DealSlider />
+                </section>}
+                {homePage.homePageData?.shopByCategories && <section className='flex flex-col justify-center items-center py-20 px-5 lg:px-20'>
+                    <h1 className='text-lg lg:text-4xl font-bold text-[#00927c] pb-5 lg:pb-20'>SHOP BY CATEGORY</h1>
+                    <HomeCategory />
+                </section>}
+                <section className='lg:px-20 relative h-[200px] lg:h-[450px] object-cover'>
+                    <img className='w-full h-full' src={"/seller_banner_image.jpg"} alt="" />
+                    <div className='absolute top-1/2 left-4 lg:left-[15rem] transform  -translate-y-1/2 font-semibold lg:text-4xl space-y-3 '>
+                        <h1 className=''>
+                            Sell Your Product
+                        </h1>
+                        <p className='text-lg md:text-2xl'>With <strong className='logo text-3xl md:text-5xl pl-2'>Naresh bazzar</strong></p>
 
-                    <div className='pt-6 flex justify-center'>
-                        <Button
-                            onClick={becomeSellerClick}
-                            startIcon={<StorefrontIcon />}
-                            variant="contained"
-                        >
-                            Become Seller
-                        </Button>
+                        <div className='pt-6 flex justify-center'>
+                            <Button
+                                onClick={becomeSellerClick}
+                                startIcon={<StorefrontIcon />}
+                                variant="contained"
+                            >
+                                Become Seller
+                            </Button>
+                        </div>
+
                     </div>
 
-                </div>
+                </section>
 
-            </section>
-
-            <section className='fixed bottom-10 right-10'>
-                {showChatBot ? <ChatBot handleClose={handleCloseChatBot} /> : <Button onClick={handleShowChatBot} sx={{ borderRadius: "2rem" }} variant='contained' className='h-16 w-16  flex justify-center items-center rounded-full'>
-                    <ChatBubbleIcon sx={{ color: "white", fontSize: "2rem" }} />
-                </Button>}
+                <section className='fixed bottom-10 right-10'>
+                    {showChatBot ? <ChatBot handleClose={handleCloseChatBot} /> : <Button onClick={handleShowChatBot} sx={{ borderRadius: "2rem" }} variant='contained' className='h-16 w-16  flex justify-center items-center rounded-full'>
+                        <ChatBubbleIcon sx={{ color: "white", fontSize: "2rem" }} />
+                    </Button>}
 
 
 
 
-            </section>
-    
+                </section>
 
 
-        </div>: <Backdrop
+
+            </div> : <Backdrop
                 open={true}
 
             >
                 <CircularProgress color="inherit" />
             </Backdrop>}
-       
+
         </>
-        
+
     )
 }
 
