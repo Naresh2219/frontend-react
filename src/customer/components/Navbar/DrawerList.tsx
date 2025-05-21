@@ -31,7 +31,7 @@ const DrawerList = ({toggleDrawer}:any) => {
     </List>
 
     {selectedCategory && <div
-        // onMouseLeave={() => setShowSheet(false)}
+        //onMouseLeave={() => setShowSheet(false)}
         // onMouseEnter={() => setShowSheet(true)} 
         className='categorySheet absolute top-[4.41rem] left-0 right-0 h-[400px]'>
         <CategorySheet toggleDrawer={toggleDrawer} selectedCategory={selectedCategory}/>
