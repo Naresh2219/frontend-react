@@ -30,7 +30,13 @@ const Home = () => {
     return (
         <>
             {(!homePage.loading) ? <div className='space-y-5 lg:space-y-10 relative'>
-                { <ElectronicCategory />}
+
+                {!homePage.homePageData?.electricCategories
+                    ? <p className='text-red-500'>Electric Categories not loaded</p>
+                    : <ElectronicCategory />}
+
+
+
                 {/* <Banner /> */}
 
 
