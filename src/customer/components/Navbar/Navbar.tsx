@@ -83,7 +83,7 @@ const Navbar = () => {
                 <li
                   onMouseLeave={() => {
                     // setSelectedCategory("")
-                    setShowSheet(false);
+                    setShowSheet(true);
                   }}
                   onMouseEnter={() => {
                     setSelectedCategory(item.categoryId);
