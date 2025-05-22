@@ -30,7 +30,10 @@ const Home = () => {
     return (
         <>
             {(!homePage.loading) ? <div className='space-y-5 lg:space-y-10 relative'>
-                {!homePage.homePageData?.electricCategories && <ElectronicCategory />}
+                {homePage.homePageData?.electricCategories
+                    ? <ElectronicCategory />
+                    : <pre>{JSON.stringify(homePage.homePageData, null, 2)}</pre>}
+
                 {/* <Banner /> */}
 
 
@@ -52,7 +55,7 @@ const Home = () => {
                         <h1 className=''>
                             Sell Your Product
                         </h1>
-                        <p className='text-lg md:text-2xl'>With <strong className='logo text-3xl md:text-5xl pl-2'>HappyShopingr</strong></p>
+                        <p className='text-lg md:text-2xl'>With <strong className='logo text-3xl md:text-5xl pl-2'>HappyShoping</strong></p>
 
                         <div className='pt-6 flex justify-center'>
                             <Button
