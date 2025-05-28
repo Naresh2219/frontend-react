@@ -1,26 +1,57 @@
-export const uploadToCloudinary = async (pics:any) => {
+// export const uploadToCloudinary = async (pics:any) => {
 
-    const cloud_name="dytkmjiri"
+//     const cloud_name="dytkmjiri"
     
-    if (pics) {
+//     if (pics) {
       
-      const data = new FormData();
-      data.append("file", pics);
-      data.append("upload_preset", "ml_default");
-      data.append("cloud_name", cloud_name);
-     // http://api.cloudinary.com/v1_1/dytkmjiri/upload
+//       const data = new FormData();
+//       data.append("file", pics);
+//       data.append("upload_preset", "ml_default");
+//       data.append("cloud_name", cloud_name);
   
-      const res = await 
-      fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
-        method: "post",
-        body: data,
-      })
+//       const res = await 
+//       fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+//         method: "post",
+//         body: data,
+//       })
         
-        const fileData=await res.json();
-        console.log("url : ", fileData);
-        return fileData.url
+//         const fileData=await res.json();
+//         console.log("url : ", fileData);
+//         return fileData.url
   
-    } else {
-      console.log("error");
+//     } else {
+//       console.log("error");
+//     }
+//   };
+
+export const uploadToCloudinary = async (pics: any): Promise<string | null> => {
+  const cloud_name = "dytkmjiri";
+
+  if (!pics) {
+    console.error("No file provided for upload.");
+    return null;
+  }
+
+  try {
+    const data = new FormData();
+    data.append("file", pics);
+    data.append("upload_preset", "ml_default");
+
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+      method: "POST",
+      body: data,
+    });
+
+    if (!res.ok) {
+      throw new Error(`Cloudinary upload failed: ${res.statusText}`);
     }
-  };
+
+    const fileData = await res.json();
+    console.log("Cloudinary URL:", fileData.url);
+
+    return fileData.url;
+  } catch (error) {
+    console.error("Upload failed:", error);
+    return null;
+  }
+};
