@@ -1,58 +1,56 @@
-// export const uploadToCloudinary = async (pics:any) => {
+// export const uploadToCloudinary = async (file:any) => {
 
 //     const cloud_name="dytkmjiri"
-    
-//     if (pics) {
-      
+
+//     if (file) {
+
 //       const data = new FormData();
-//       data.append("file", pics);
+//       data.append("file", file);
 //       data.append("upload_preset", "ml_default");
 //       data.append("cloud_name", cloud_name);
-  
+
 //       const res = await 
 //       fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
 //         method: "post",
 //         body: data,
 //       })
-        
+
 //         const fileData=await res.json();
 //         console.log("url : ", fileData);
 //         return fileData.url
-  
+
 //     } else {
 //       console.log("error");
 //     }
 //   };
+export const uploadToCloudinary = async (file: File): Promise<string | null> => {
+  const cloudName = "dytkmjiri";
+  const uploadPreset = "ml_default";
 
-export const uploadToCloudinary = async (pics: any): Promise<string | null> => {
-  const cloud_name = "dytkmjiri";
-  const upload_preset = "ml_default"; // <- using your unsigned preset
-
-  if (!pics) {
-    console.error("No file provided for upload.");
+  if (!file) {
+    console.error("No file provided.");
     return null;
   }
 
   try {
-    const data = new FormData();
-    data.append("file", pics);
-    data.append("upload_preset", upload_preset);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", uploadPreset);
 
-    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
+    const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
       method: "POST",
-      body: data,
+      body: formData,
     });
 
-    if (!res.ok) {
-      throw new Error(`Cloudinary upload failed: ${res.statusText}`);
+    if (!response.ok) {
+      throw new Error(`Cloudinary upload failed: ${response.statusText}`);
     }
 
-    const fileData = await res.json();
-    console.log("Cloudinary URL:", fileData.url);
-
+    const fileData = await response.json();
+    console.log("Uploaded file URL:", fileData.url);
     return fileData.url;
   } catch (error) {
-    console.error("Upload failed:", error);
+    console.error("Upload error:", error);
     return null;
   }
 };
