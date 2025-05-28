@@ -26,6 +26,7 @@
 
 export const uploadToCloudinary = async (pics: any): Promise<string | null> => {
   const cloud_name = "dytkmjiri";
+  const upload_preset = "ml_default"; // <- using your unsigned preset
 
   if (!pics) {
     console.error("No file provided for upload.");
@@ -35,7 +36,7 @@ export const uploadToCloudinary = async (pics: any): Promise<string | null> => {
   try {
     const data = new FormData();
     data.append("file", pics);
-    data.append("upload_preset", "ml_default");
+    data.append("upload_preset", upload_preset);
 
     const res = await fetch(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, {
       method: "POST",
