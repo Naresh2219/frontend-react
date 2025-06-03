@@ -55,7 +55,7 @@ const Navbar = () => {
   return (
     <Box
     className="sticky top-0 left-0 right-0 bg-white blur-bg bg-opacity-80 "
-      sx={{ zIndex: 1200 }}
+      sx={{ zIndex: 1100 }}
       
     >
       <div className="flex items-center justify-between px-5 lg:px-20 h-[70px] border-b">
