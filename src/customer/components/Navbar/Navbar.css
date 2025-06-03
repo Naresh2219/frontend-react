@@ -1,15 +1,17 @@
-.logo{
-    font-family: "Pacifico", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-.category{
-    font-weight: 400;
+/* Navbar.css */
+.categorySheet {
+  background-color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
 }
 
+.mainCategory {
+  transition: all 0.3s ease;
+}
 
-.blur-bg {
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+@media (max-width: 768px) {
+  .mainCategory {
+    padding: 0 8px;
+    font-size: 14px;
   }
-  
+}
